@@ -61,7 +61,8 @@ class Program
             //Angular
             angularDisplacement += (angularVelocity * timeStep);
             angularVelocity += (angularAcceleration * timeStep);
-            angularAcceleration = ball1 * systemForce * Math.Sin(angularDisplacement + angle);
+            //alpha = torque / moment of inertia ; torque = radius * Force * sin(theta) ; moment of inertia = (m1*r1^2 + m2*r2^2)
+            angularAcceleration = (ball1 * systemForce * Math.Sin(angularDisplacement + angle))/inertiaMoment;
             time += timeStep;
         }
     }
