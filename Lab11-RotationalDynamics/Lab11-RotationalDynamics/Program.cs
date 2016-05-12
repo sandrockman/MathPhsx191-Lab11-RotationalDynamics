@@ -23,6 +23,9 @@ class Program
 
         Vector3D centerOfMass = new Vector3D(); // starts at zero vector
         Vector3D rotationalCenter = new Vector3D();
+        double angularDisplacement = 180;
+        double angularVelocity = 0;
+        double angularAcceleration = 0;
 
         //find ball one distance from center of mass.
         //assuming first that ball 1 will be the center, find COM.
@@ -37,17 +40,39 @@ class Program
         Vector3D force = new Vector3D();
         double time = 0;
         double inputTime = 0;
-        Console.Write("Please enter x of Force: ");
-        double tempX = Convert.ToDouble(Console.ReadLine());
-        Console.Write("Please enter y of Force: ");
-        double tempY = Convert.ToDouble(Console.ReadLine());
+        Console.Write("Please enter magnitude of the Force applied: ");
+        double systemForce = Convert.ToDouble(Console.ReadLine());
 
         Console.Write("Please enter time of system in seconds: ");
         inputTime = Convert.ToDouble(Console.ReadLine());
 
         while(time < inputTime)
         {
-
+            Console.Write("Time: " + time + "pos:  "+
+                centerOfMass.GetX() + ", " + centerOfMass.GetY() + ") and ");
+            Console.Write("AngD: "+angularDisplacement);
+            Console.Write("AngV: " + angularVelocity);
+            Console.Write("AngA: " + angularAcceleration);
+            //Linear
+            centerOfMass = centerOfMass + new Vector3D((systemForce * Math.Cos(Program.D2R(angle))),
+                                                        (systemForce * Math.Sin(Program.D2R(angle))),
+                                                        0, 1);
+            //no change to linear velocity or linear acceleration.
+            //Angular
+            angularDisplacement += (angularVelocity * timeStep);
+            angularVelocity += (angularAcceleration * timeStep);
+            angularAcceleration = ball1 * systemForce * Math.Sin(angularDisplacement + angle);
+            time += timeStep;
         }
+    }
+
+    static double D2R(double degrees)
+    {
+        return degrees * Math.PI / (double)180;
+    }
+
+    static double R2D(double radians)
+    {
+        return radians * (double)180 / Math.PI;
     }
 }

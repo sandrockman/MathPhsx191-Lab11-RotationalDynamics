@@ -638,12 +638,12 @@ public class Vector3D
         return scaledObj;
     }
 
-    static double D2R(double degrees)
+    public static double D2R(double degrees)
     {
         return degrees * Math.PI / (double)180;
     }
 
-    static double R2D(double radians)
+    public static double R2D(double radians)
     {
         return radians * (double)180 / Math.PI;
     }
