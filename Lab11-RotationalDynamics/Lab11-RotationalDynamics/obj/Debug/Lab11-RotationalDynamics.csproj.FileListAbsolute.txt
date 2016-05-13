@@ -1,1 +1,6 @@
 C:\Users\svc-student\Desktop\MathPhsx191-Lab11-RotationalDynamics\Lab11-RotationalDynamics\Lab11-RotationalDynamics\bin\Debug\Lab11-RotationalDynamics.exe.config
+C:\Users\svc-student\Desktop\MathPhsx191-Lab11-RotationalDynamics\Lab11-RotationalDynamics\Lab11-RotationalDynamics\bin\Debug\Lab11-RotationalDynamics.exe
+C:\Users\svc-student\Desktop\MathPhsx191-Lab11-RotationalDynamics\Lab11-RotationalDynamics\Lab11-RotationalDynamics\bin\Debug\Lab11-RotationalDynamics.pdb
+C:\Users\svc-student\Desktop\MathPhsx191-Lab11-RotationalDynamics\Lab11-RotationalDynamics\Lab11-RotationalDynamics\obj\Debug\Lab11-RotationalDynamics.csprojResolveAssemblyReference.cache
+C:\Users\svc-student\Desktop\MathPhsx191-Lab11-RotationalDynamics\Lab11-RotationalDynamics\Lab11-RotationalDynamics\obj\Debug\Lab11-RotationalDynamics.exe
+C:\Users\svc-student\Desktop\MathPhsx191-Lab11-RotationalDynamics\Lab11-RotationalDynamics\Lab11-RotationalDynamics\obj\Debug\Lab11-RotationalDynamics.pdb
