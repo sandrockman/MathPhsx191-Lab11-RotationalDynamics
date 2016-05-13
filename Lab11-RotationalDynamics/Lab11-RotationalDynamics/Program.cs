@@ -22,7 +22,7 @@ class Program
         double timeStep = 0.1; //in seconds
 
         Vector3D centerOfMass = new Vector3D(); // starts at zero vector
-        Vector3D rotationalCenter = new Vector3D();
+        Vector3D linearVelocity = new Vector3D();
         double angularDisplacement = 180;
         double angularVelocity = 0;
         double angularAcceleration = 0;
@@ -48,15 +48,18 @@ class Program
 
         while(time < inputTime)
         {
-            Console.Write("Time: " + time + "pos:  "+
-                centerOfMass.GetX() + ", " + centerOfMass.GetY() + ") and ");
-            Console.Write("AngD: "+angularDisplacement);
+            Console.Write("Time: " + time + "pos: (" +
+                centerOfMass.GetX() + ", " + centerOfMass.GetY() + ") vel:(");
+            Console.Write("velocity: (" +
+                linearVelocity.GetX() + ", " + linearVelocity.GetY() + ")");
+            Console.Write("and AngD: "+angularDisplacement);
             Console.Write("AngV: " + angularVelocity);
             Console.Write("AngA: " + angularAcceleration);
             //Linear
-            centerOfMass = centerOfMass + new Vector3D((systemForce * Math.Cos(Program.D2R(angle))),
-                                                        (systemForce * Math.Sin(Program.D2R(angle))),
-                                                        0, 1);
+            centerOfMass += linearVelocity & timeStep;
+            linearVelocity += new Vector3D((systemForce * Math.Cos(Program.D2R(angle))),
+                                           (systemForce * Math.Sin(Program.D2R(angle))),
+                                            0, 1);
             //no change to linear velocity or linear acceleration.
             //Angular
             angularDisplacement += (angularVelocity * timeStep);
@@ -65,6 +68,14 @@ class Program
             angularAcceleration = (ball1 * systemForce * Math.Sin(angle - angularDisplacement))/inertiaMoment;
             time += timeStep;
         }
+        Console.Write("Time: " + time + "pos: (" +
+                centerOfMass.GetX() + ", " + centerOfMass.GetY() + ") vel:(");
+        Console.Write("velocity: (" +
+            linearVelocity.GetX() + ", " + linearVelocity.GetY() + ")");
+        Console.Write("and AngD: " + angularDisplacement);
+        Console.Write("AngV: " + angularVelocity);
+        Console.Write("AngA: " + angularAcceleration);
+
     }
 
     static double D2R(double degrees)
